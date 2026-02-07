@@ -210,7 +210,9 @@ void findBand(short uart) {
           snprintf(item_disp[mTheme], IDSZ, "     NORMAL     ");
           Set_Theme();
           DrawMeter();                                                    // Re-draw screens.
-          DrawHome();
+          if(SCREEN == 2) DrawATU_Data();
+          else if (SCREEN == 1) DrawMenu();
+          else if (SCREEN == 0) DrawHome();
         }
         if (found[4] == 'N'){
           Theme = 1;
@@ -218,7 +220,9 @@ void findBand(short uart) {
           snprintf(item_disp[mTheme], IDSZ, "     NIGHT      ");
           Set_Theme();
           DrawMeter();                                                    // Re-draw screens.
-          DrawHome();
+          if(SCREEN == 2) DrawATU_Data();
+          else if (SCREEN == 1) DrawMenu();
+          else if (SCREEN == 0) DrawHome();
         }
       }
 

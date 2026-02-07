@@ -53,8 +53,8 @@ void DrawMenu(void){
   Tft.drawString((uint8_t*)"SELECT", 124, 132, 2, FG_col);
   menuSEL = 0;
   DrawButton(5, 180, 70, 55);                                                // Draw button for ATU page selection
-  Tft.drawString((uint8_t*)"ATU", 20, 190,  2, WHITE);
-  Tft.drawString((uint8_t*)"DATA", 15, 213,  2, WHITE);
+  Tft.drawString((uint8_t*)"ATU", 20, 190,  2, FG_col);
+  Tft.drawString((uint8_t*)"DATA", 15, 213,  2, FG_col);
   
   Tft.drawString((uint8_t*)"ATU:", 206, 190, 2, FG_col);                      // Draw firmware rev text
   Tft.drawString((uint8_t*)ATU_ver, 254, 190, 2, FG_col);
@@ -64,7 +64,7 @@ void DrawMenu(void){
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Draws leftt hand screen button text
+// Draws left hand screen button text
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  Draws status indicator and text in buttons for FWD,RFL,DRV,VDD,IDD
 // Also draws text for DCP, Eff, SWR and temperature indicators.
@@ -450,11 +450,11 @@ void DrawATU_Data(void){
   int ATU_col = DKGRY;                                                                // colour for ATU parameter table except active band
   Tft.LCD_SEL = 1;
   Tft.lcd_clear_screen(BG_col);                                                       // Clear right hand screen and display ATU parameters
-  Tft.drawString((uint8_t*)"BAND  L (nH) C (pF)   Z  ", 10, 5, 2, WHITE);
-  Tft.drawString((uint8_t*)"-------------------------", 10, 15, 2, WHITE);
-  Tft.lcd_draw_v_line(70, 10, 180, WHITE);                                     
-  Tft.lcd_draw_v_line(156, 10, 180, WHITE);                                     
-  Tft.lcd_draw_v_line(250, 10, 180, WHITE);
+  Tft.drawString((uint8_t*)"BAND  L (nH) C (pF)   Z  ", 10, 5, 2, FG_col);
+  Tft.drawString((uint8_t*)"-------------------------", 10, 15, 2, FG_col);
+  Tft.lcd_draw_v_line(70, 10, 180, FG_col);                                     
+  Tft.lcd_draw_v_line(156, 10, 180, FG_col);                                     
+  Tft.lcd_draw_v_line(250, 10, 180, FG_col);
 
 
   if (BAND == 10 && ANTSEL[BAND] == 1 && ATUT[BAND] == 1) ATU_col = A1_TXT;             // 160m parameters
@@ -590,7 +590,7 @@ void DrawATU_Data(void){
   
     
   DrawButton(10, 205, 60, 30);
-  Tft.drawString((uint8_t*)"EXIT", 15, 213,  2, WHITE);                             // Display EXIT button
+  Tft.drawString((uint8_t*)"EXIT", 15, 213,  2, FG_col);                             // Display EXIT button
 
   DrawButton(100, 205, 120, 30);
   Tft.drawString((uint8_t*)"TUNE", 130, 213,  2, ACT_TXT);                          // Display TUNE button
