@@ -1150,7 +1150,8 @@ void loop()
             Tft.drawString((uint8_t*)"Ant 2", 245, 213,  2, A2_TXT);
             SEL_ANT2;
           }
-        }        
+          DrawATU_Data();
+        }                
       }            
     }
    
