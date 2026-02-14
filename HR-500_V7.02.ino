@@ -589,7 +589,7 @@ void loop()
   }
   
   if (!TUNING){
-    if((analogRead(INPUT_RF) > 3) && !trip && (CW || TR_wait.hasPassed(100))){      // Condition to update SWR display
+    if((analogRead(INPUT_RF) > 0) && !trip && (CW || TR_wait.hasPassed(100))){      // Condition to update SWR display
       VSWR = Read_Power(vswr);                                                      // Check current VSWR
       if (VSWR >= 10 && (VSWR > (OVSWR + 1) || VSWR < (OVSWR - 1))) {
         OVSWR = VSWR;
@@ -1150,7 +1150,7 @@ void loop()
             Tft.drawString((uint8_t*)"Ant 2", 245, 213,  2, A2_TXT);
             SEL_ANT2;
           }
-          DrawATU_Data();
+          DrawATU_Data();                                                         // Redraw ATU data screen
         }                
       }            
     }
@@ -1428,7 +1428,7 @@ void SetBand(void){
 
   SR_DATA = sr_data;
 
-  if (BAND && BAND != OBAND){
+  if (BAND && BAND != OBAND){                                                 // Band has changed to a new valid band
     Send_RLY(SR_DATA);
     OBAND = BAND;
     DrawBand(BAND, acolor);                                                   // Update band text
@@ -1440,6 +1440,8 @@ void SetBand(void){
     OBAND = BAND;
     DrawBand(BAND, acolor);                                                   
   }
+  Tft.LCD_SEL = 0;
+  Tft.drawString((uint8_t*)ORL_TXT, 70, 203, 2, BG_col);                      // Erase stale SWR display
 }
 
 

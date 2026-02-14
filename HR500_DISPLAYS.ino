@@ -593,7 +593,7 @@ void DrawATU_Data(void){
   Tft.drawString((uint8_t*)"EXIT", 15, 213,  2, FG_col);                             // Display EXIT button
 
   DrawButton(100, 205, 120, 30);
-  Tft.drawString((uint8_t*)"TUNE", 130, 213,  2, ACT_TXT);                          // Display TUNE button
+  Tft.drawString((uint8_t*)"TUNE", 135, 213,  2, ACT_TXT);                          // Display TUNE button
 
   
   DrawButton(240, 205, 70, 30);                                                     // Display antenna select button

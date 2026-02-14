@@ -18,11 +18,11 @@ void Tune_button(void){                                             // Tune has 
     }
     else if (SCREEN == 2){                                          // Display appropriate for ATU data page 
       Tft.LCD_SEL = 1;
-      Tft.drawString((uint8_t*)"TUNE", 130, 213,  2, BG_col);       // Erase TUNE button and show TUNING for 1 sec.
+      Tft.drawString((uint8_t*)"TUNE", 135, 213,  2, BG_col);       // Erase TUNE button and show TUNING for 1 sec.
       Tft.drawString((uint8_t*)"TUNING", 120, 213,  2, WARN_LED);            
       delay (1000);
       Tft.drawString((uint8_t*)"TUNING", 120, 213,  2, BG_col);
-      Tft.drawString((uint8_t*)"STOP", 130, 213,  2, FG_col);       // Display new ATU text while tuning
+      Tft.drawString((uint8_t*)"STOP", 135, 213,  2, FG_col);       // Display new ATU text while tuning
     }
     Tft.LCD_SEL = 0;
     Tft.lcd_fill_rect(66, 199, 76, 26, BG_col);                     // Erase stale SWR display
