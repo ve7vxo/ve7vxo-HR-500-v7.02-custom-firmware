@@ -195,8 +195,8 @@ Version 6.05 Notes. -- VE7VXO
  * *************************************************************************************************************
  */
 
-#define DEBUG_ATU
-//#define DEVELOPMENT                               // if defined then compile code blocks for development
+#define DEBUG_ATU                                   // If defined send debug output to USB serial during automatch service
+//#define DEVELOPMENT                               // If defined then compile code blocks for development (scope trigger)
  
 #define VERSION "7.02"
 
@@ -208,21 +208,21 @@ Version 6.05 Notes. -- VE7VXO
 #define CT6 500
 #define CT7 1100
 
-#define LT1 50                                    // Stock ATU inductance values (nH) (Specified)
-#define LT2 100                                   // 3.15 uH total
-#define LT3 200
-#define LT4 400
-#define LT5 800
-#define LT6 1600
+//#define LT1 50                                    // Stock ATU inductance values (nH) (Specified in schematic)
+//#define LT2 100                                   // 3.15 uH total
+//#define LT3 200
+//#define LT4 400
+//#define LT5 800
+//#define LT6 1600
 
-//#define LT1 10                                    // Stock ATU inductance values (nH) (Calculated)
-//#define LT2 40                                    // 4.98 uH total
-//#define LT3 240
-//#define LT4 540
-//#define LT5 1330
-//#define LT6 2820
+#define LT1 10                                    // Stock ATU inductance values (nH) (Calculated based on turns)
+#define LT2 40                                    // 4.98 uH total
+#define LT3 240
+#define LT4 540
+#define LT5 1330
+#define LT6 2820
 
-//#define LT1 50                                    // Modified ATU inductance values (nH)
+//#define LT1 50                                    // VE7VXO modified ATU inductance values (nH)
 //#define LT2 150                                   // 6.86 uH total
 //#define LT3 350
 //#define LT4 890

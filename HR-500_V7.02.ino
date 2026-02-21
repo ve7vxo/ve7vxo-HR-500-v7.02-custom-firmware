@@ -996,8 +996,8 @@ void loop()
           Tft.LCD_SEL = 0;
           DrawPanel(63, 196, 80, 30);                                             // Erase stale swr display text
           delay(200);                                                             // wait for display
-          OVSWR = 10;
-          VSWR = 10;
+          OVSWR = 0;
+          VSWR = 0;
           strcpy(RL_TXT, "    ");
           strcpy(ORL_TXT, "    ");
         }
@@ -1150,8 +1150,8 @@ void loop()
             Tft.drawString((uint8_t*)"Ant 2", 245, 213,  2, A2_TXT);
             SEL_ANT2;
           }
-          DrawATU_Data();                                                         // Redraw ATU data screen
-        }                
+          DrawATU_Data();                                                         // re-display ATU parameters
+        }        
       }            
     }
    
@@ -1265,6 +1265,7 @@ void Switch_to_RX (void){
   Tft.drawString((uint8_t*)RL_TXT, 70, 203, 2, vswr_col);                     // Display last SWR value once only in color
   strcpy(ORL_TXT, RL_TXT);
   do_swr = false;                                                             // Prepare for SWR display on next TX
+  OVSWR = 0;
   CW = true;     
 }
 
@@ -1432,7 +1433,7 @@ void SetBand(void){
     Send_RLY(SR_DATA);
     OBAND = BAND;
     DrawBand(BAND, acolor);                                                   // Update band text
-    EEPROM.update(eeband, BAND);                                               // Update band selection in NVRAM
+    EEPROM.update(eeband, BAND);                                              // Update band selection in NVRAM
     DrawAnt();
     delay(50);                                                                // Short delay for relays before continuing
   }
@@ -1555,7 +1556,8 @@ void RF_Sense(void){
   }
   
   
-  if (p_fwd && p_rev && p_fwd > p_rev){  
+  if (p_fwd && p_rev){  
+//  if (p_fwd && p_rev && p_fwd > p_rev){  
     f_tot = fwd_pwr.filter(p_fwd * M_CORR / 100L);                // Filtered forward analog voltage
     r_tot = rfl_pwr.filter(p_rev * M_CORR / 100L);                // Filtered reflected analog voltage    
   }

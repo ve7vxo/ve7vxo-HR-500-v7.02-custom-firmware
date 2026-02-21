@@ -27,8 +27,8 @@ void Tune_button(void){                                             // Tune has 
     Tft.LCD_SEL = 0;
     Tft.lcd_fill_rect(66, 199, 76, 26, BG_col);                     // Erase stale SWR display
     delay (100);
-    OVSWR = 10;
-    VSWR = 10;
+    OVSWR = 0;
+    VSWR = 0;
     strcpy(RL_TXT, "    ");
     strcpy(ORL_TXT, "    ");
     TUNING = 1;                                                     // Tuning state is active
@@ -276,9 +276,9 @@ void Wait_RF(void){
   while (analogRead(INPUT_RF) > 1){                                 // Wait for RF drive removed
     if (SCREEN == 0){                                               // When on main screen
       DrawTxPanel(ALRM_LED);                                        // Flash red TX status to indicate drive ON
-      delay(200);
+      delay(100);
       DrawTxPanel(BG_col);
-      delay(400);
+      delay(100);
     }
     else if (SCREEN == 2){                                          // When on ATU data screen
       Tft.LCD_SEL = 1;
